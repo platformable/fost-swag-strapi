@@ -1,0 +1,97 @@
+{
+  "kind": "collectionType",
+  "collectionName": "offers",
+  "info": {
+    "singularName": "offer",
+    "pluralName": "offers",
+    "displayName": "Offer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "offer_title": {
+      "type": "string"
+    },
+    "tagline": {
+      "type": "string"
+    },
+    "cta_text": {
+      "type": "string"
+    },
+    "offer_value": {
+      "type": "decimal"
+    },
+    "badge_label": {
+      "type": "string"
+    },
+    "is_active": {
+      "type": "boolean"
+    },
+    "landing_url": {
+      "type": "string"
+    },
+    "offer_desc": {
+      "type": "text"
+    },
+    "what_you_get": {
+      "type": "text"
+    },
+    "redeem_step_01": {
+      "type": "string"
+    },
+    "redeem_step_02": {
+      "type": "string"
+    },
+    "redeem_step_03": {
+      "type": "string"
+    },
+    "redeem_step_04": {
+      "type": "string"
+    },
+    "coupon_coude": {
+      "type": "string"
+    },
+    "discount_amount": {
+      "type": "string"
+    },
+    "price_after_discount": {
+      "type": "string"
+    },
+    "audience": {
+      "type": "string"
+    },
+    "redemption_method": {
+      "type": "string"
+    },
+    "expires_days": {
+      "type": "integer"
+    },
+    "terms": {
+      "type": "text"
+    },
+    "useful_link_1": {
+      "type": "string"
+    },
+    "useful_link_2": {
+      "type": "string"
+    },
+    "course_link": {
+      "type": "string"
+    },
+    "contact_email": {
+      "type": "string"
+    },
+    "offer_type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::offer-type.offer-type"
+    },
+    "sponsor": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::sponsor.sponsor"
+    }
+  }
+}
