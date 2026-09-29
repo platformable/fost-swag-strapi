@@ -514,6 +514,7 @@ export interface ApiOfferOffer extends Struct.CollectionTypeSchema {
   attributes: {
     audience: Schema.Attribute.String;
     badge_label: Schema.Attribute.String;
+    category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
     contact_email: Schema.Attribute.String;
     coupon_coude: Schema.Attribute.String;
     course_link: Schema.Attribute.String;
