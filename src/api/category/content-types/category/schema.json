@@ -16,6 +16,12 @@
     },
     "category_desc": {
       "type": "text"
+    },
+    "offer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::offer.offer",
+      "inversedBy": "categories"
     }
   }
 }
