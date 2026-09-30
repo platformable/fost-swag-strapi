@@ -17,9 +17,9 @@
     "category_desc": {
       "type": "text"
     },
-    "offer": {
+    "offers": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::offer.offer",
       "inversedBy": "categories"
     }

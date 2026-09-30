@@ -465,7 +465,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
       'api::category.category'
     > &
       Schema.Attribute.Private;
-    offer: Schema.Attribute.Relation<'manyToOne', 'api::offer.offer'>;
+    offers: Schema.Attribute.Relation<'manyToMany', 'api::offer.offer'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -516,7 +516,7 @@ export interface ApiOfferOffer extends Struct.CollectionTypeSchema {
     audience: Schema.Attribute.String;
     badge_label: Schema.Attribute.String;
     categories: Schema.Attribute.Relation<
-      'oneToMany',
+      'manyToMany',
       'api::category.category'
     >;
     contact_email: Schema.Attribute.String;
