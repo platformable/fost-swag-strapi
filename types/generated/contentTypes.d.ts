@@ -534,6 +534,8 @@ export interface ApiOfferOffer extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::offer.offer'> &
       Schema.Attribute.Private;
     offer_desc: Schema.Attribute.Text;
+    offer_id: Schema.Attribute.UID &
+      Schema.Attribute.CustomField<'plugin::strapi-advanced-uuid.uuid'>;
     offer_title: Schema.Attribute.String;
     offer_type: Schema.Attribute.Relation<
       'oneToOne',
