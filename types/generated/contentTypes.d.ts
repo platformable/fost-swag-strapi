@@ -473,6 +473,41 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiClaimOfferClaimOffer extends Struct.CollectionTypeSchema {
+  collectionName: 'claim_offers';
+  info: {
+    displayName: 'Claim_Offer';
+    pluralName: 'claim-offers';
+    singularName: 'claim-offer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    contact_email: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::claim-offer.claim-offer'
+    > &
+      Schema.Attribute.Private;
+    offer: Schema.Attribute.Relation<'manyToOne', 'api::offer.offer'>;
+    offer_documentID: Schema.Attribute.String;
+    offer_title: Schema.Attribute.String;
+    offer_type: Schema.Attribute.String;
+    offer_value: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    sponsor_name: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiOfferTypeOfferType extends Struct.CollectionTypeSchema {
   collectionName: 'offer_types';
   info: {
@@ -518,6 +553,10 @@ export interface ApiOfferOffer extends Struct.CollectionTypeSchema {
     categories: Schema.Attribute.Relation<
       'manyToMany',
       'api::category.category'
+    >;
+    claim_offers: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::claim-offer.claim-offer'
     >;
     contact_email: Schema.Attribute.String;
     coupon_coude: Schema.Attribute.String;
@@ -1136,6 +1175,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::category.category': ApiCategoryCategory;
+      'api::claim-offer.claim-offer': ApiClaimOfferClaimOffer;
       'api::offer-type.offer-type': ApiOfferTypeOfferType;
       'api::offer.offer': ApiOfferOffer;
       'api::page.page': ApiPagePage;

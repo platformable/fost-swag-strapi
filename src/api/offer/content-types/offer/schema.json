@@ -102,6 +102,12 @@
     "offer_id": {
       "type": "customField",
       "customField": "plugin::strapi-advanced-uuid.uuid"
+    },
+    "claim_offers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::claim-offer.claim-offer",
+      "mappedBy": "offer"
     }
   }
 }
